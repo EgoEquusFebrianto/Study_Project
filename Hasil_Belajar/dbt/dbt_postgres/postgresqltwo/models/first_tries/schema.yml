@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: passenger_data
+    description: "It is a data model that provides information about 100 victims of the Titanic disaster."
+    columns:
+      - name: ticket
+        description: "Ticket number assigned to each passenger."
+        data_tests:
+          - not_null
+      
+      - name: name
+        description: "Full name of the passenger."
+        data_tests:
+          - not_null
+      
+      - name: sex
+        description: "Gender of the passenger (male or female)."
+        data_tests:
+          - not_null
+
+      - name: age
+        description: "Age of the passenger in years."
+        data_tests:
+          - not_null
+      
+      - name: survived
+        description: "Survival status (0 = No, 1 = Yes)."
+        data_tests:
+          - not_null
+
+      - name: embarked
+        description: "Port of Embarkation (C = Cherbourg, Q = Queenstown, S = Southampton)."
+        data_tests:
+          - not_null
+
+      - name: cabin
+        description: "Cabin number assigned to the passenger."
+        data_tests:
+          - not_null
+
+
+sources:
+  - name: engineering
+    database: postgres
+    schema: engineering
+    tables:
+      - name: titanic_dataset
+        description: "Reference table that provides the raw data for the Titanic passengers."
